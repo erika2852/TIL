@@ -33,4 +33,38 @@ role属性をつけることによって、HTML要素に意味や役割をつけ
 
 上記の例では、100%になったタイミングでユーザーに伝えることができる。
 
-あい
+### **3. キーボードのアクセシビリティの向上**
+
+!https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F390720%2F4c8a3ad6-0220-15fe-42b1-47ed04ae730e.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=6de047eb5ecbb280c10fd632b4cc1dcc
+
+キーボードのアクセシビリティを最初から持つHTML要素があるが、JavaScriptを使って、それ以外の要素に同じようなインタラクションをさせる場合、スクリーンリーダーにとって困難が生じる。
+
+そのため、`tabindex` を使うことで、他の要素に対してフォーカスさせることができる。
+
+```html
+<div tabindex="1">ボタン</div>
+```
+
+*上記の例では、tabキーで `<div>` にフォーカスが当たるようになる。*
+
+### **4. 意味論的ではないコントロールのアクセシビリティ**
+
+!https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F390720%2F3fbc7386-7c01-8c5b-25a3-373c06894009.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=18372bf8f0e2dcd494f13a213392474f
+
+CSSやJavaScriptによって複雑なUIで構成していたり、JavaScriptによってネイティブのコントロールが大きく強化/変更されていると、アクセシビリティの提供は困難になり、特にスクリーンリーダーのユーザーはその機能が何をするのか判断するのが難しくなる。
+
+そのため、このような状況では、 `button`・`listbox`・`tabgroup` といったロールを組み合わせたり、
+
+`aria-required`・`aria-posinset` などのプロパティで、機能の手がかりを提供することで、足りないものをWAI-ARIAで補うことができる。
+
+```html
+<h2 id="periodictable">化学元素の周期表</h2>
+<ul role="listbox" aria-labelledby="periodictable">
+  <li role="option" aria-setsize="118" aria-posinset="1">水素</li>
+  <li role="option" aria-setsize="118" aria-posinset="3">リチウム</li>
+  <li role="option" aria-setsize="118" aria-posinset="11">ナトリウム</li>
+  <li role="option" aria-setsize="118" aria-posinset="19">カリウム</li>
+</ul>
+```
+
+*上記の例では、118の化学元素の周期表の中で`<li>`が何番目に位置しているかをサポートしている。*
