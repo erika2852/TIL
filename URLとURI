@@ -1,0 +1,23 @@
+## URLとは
+
+「**U**niform **R**esource **L**ocator」の略で、リソースがどこにあるかを示したもの。
+URL＝住所。
+
+例： https://ferret-plus.com/
+
+## URNとは
+
+「**U**niform **R**esource **N**ame」の略で、リソースを一意に識別するためのもの。
+リソースの位置は含まない。
+
+例：urn:isbn:0451450523
+
+`urn:`（識別子スキーム）
+
+`isbn:0451450523`（リソース名）
+
+## URL
+
+「**U**niform **R**esource **I**dentifier」の略で、URLとURIの総称である。
+
+https://ferret-plus.com/4637
