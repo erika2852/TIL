@@ -16,7 +16,7 @@
             - 特定の感覚的体験をつくることを目的としている時は、少なくともそのコンテンツの目的がわかる説明をつけてね
             - 例：フルートのソロ演奏、視覚芸術の作品など
         - CAPTCHA
-            - [そもそもCAPTCHAって？](https://www.notion.so/CHAPTCHA-b576681e0c324e97bf2cb62ae699982e?pvs=21)
+            - [そもそもCAPTCHAって？](https://www.notion.so/b576681e0c324e97bf2cb62ae699982e?pvs=21)
                 - 人間とBotを見分けるテスト的なもの
             - そのCAPCHAの目的を説明してね。
             - 他の感覚による知覚に対応して出力する CAPTCHA の代替形式を提供してね。
@@ -108,7 +108,7 @@
 ### 1.4 コントラストなども含め、利用者にとって見やすく聞きやすいものにしようね。
 
 - [1.4.1 色が分かりにくい人にも情報が伝わるようにしようね。(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
-    - 色覚異常、お年寄り、白く部ディスプレイ等を使用している人たちにも情報が伝わるようにしようね。
+    - 色覚異常、お年寄り、白黒ディスプレイ等を使用している人たちにも情報が伝わるようにしようね。
     - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html#visual-audio-contrast-without-color-techniques-head)
 - [1.4.2 音声が自動的に再生され、その音声が3秒より長く続く場合、音声を一時停止、もしくは音量を下げられるようにしようね。(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-dis-audio.html)（非干渉）
     - スクリーンリーダーの声が聞こえづらくなっちゃうよ。
@@ -162,4 +162,9 @@
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/reflow.html#techniques)
 - 1.4.11 インタラクティブな要素は、隣接する色と3:1のコントラストを保とうね
     - テキストや背景がしっかりしていれば境界線はなくてもいいよ
-    - 複数の色がコンポーネントに含まれている時は、
+    - 複数の色がコンポーネントに含まれている時でも、コンポーネントの識別に関わらない色はコントラストを気にしなくていいよ
+    
+    ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/be89dc3c-6442-47ed-869e-31119696b207/e262099e-9fc2-4a38-a002-01045c19c00c/image.png)
+    
+    - 1.4.1の色の使用と合わせて気をつけてね
+    - 2.4.7のフォーカスの可視化と合わせて気をつけてね。
