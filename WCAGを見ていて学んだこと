@@ -184,4 +184,5 @@
         - テキストがはみ出して切り取られる
         - テキストが重なり合う
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/text-spacing.html#techniques)
-
+- [1.4.13 ホバーや、フォーカスを当ててコンテンツが表示される時に気をつけてね](https://waic.jp/translations/WCAG21/Understanding/content-on-hover-or-focus.html)
+    -
