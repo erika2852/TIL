@@ -1,203 +1,24 @@
-## [1. **利用者が知覚できる方法で利用者に提示可能にするべき**](https://waic.jp/translations/WCAG20/Overview.html#perceivable)
+スクリーンリーダーでのpdf読み上げがおかしくなっているなら、
+以下の対応が必要。
 
-### [**1.1 すべての非テキストコンテンツには、テキストによる代替を提供すること。**](https://waic.jp/translations/WCAG20/Overview.html#text-equiv)
+- PDFファイルをAdobe Acrobat（製品版）を用いて改良する（アクセシビリティ対応）
+- 同等の内容を持つテキストファイルを提供する
 
-- [1.1.1 すべての非テキストコンテンツには、いろいろなツールに変換できるようにテキストによる代替を提供すること。(レベル A)](https://waic.jp/docs/UNDERSTANDING-WCAG20/text-equiv-all.html)
-    - 次の時以外はちゃんと意識してね
-        - コントロール、入力
-            - この時はその目的を表すname属性をつけてね（[4.1](https://waic.jp/translations/WCAG20/Overview.html#ensure-compat)）
-        - 時間依存メディア
-            - 時間により変わるコンテンツの時は、少なくともそのコンテンツのを識別できる説明をつけてね（[1.2](https://waic.jp/translations/WCAG20/Overview.html#media-equiv)）
-        - テスト
-            - テストというより演習やクイズっていう解釈をした方がわかりやすいかも
-            - 例えば、「以下の画像を見て質問に答えてください」みたいな質問があった時に、その画像の説明をつけてね。
-            - なるべく直接的な答えになることは避けてね
-        - 感覚的
-            - 特定の感覚的体験をつくることを目的としている時は、少なくともそのコンテンツの目的がわかる説明をつけてね
-            - 例：フルートのソロ演奏、視覚芸術の作品など
-        - CAPTCHA
-            - [そもそもCAPTCHAって？](https://www.notion.so/b576681e0c324e97bf2cb62ae699982e?pvs=21)
-                - 人間とBotを見分けるテスト的なもの
-            - そのCAPCHAの目的を説明してね。
-            - 他の感覚による知覚に対応して出力する CAPTCHA の代替形式を提供してね。
-            - 例：
-                - 「このテストは、あなたが人間であることを確認するためのものです。以下の指示に従ってください。」
-                - 「この画像には歪んだ文字が含まれています。これらの文字を入力して確認してください。」
-                - 「この音声には数字が含まれています。聞こえた数字を入力してください。」
-            - ただ、やりすぎるとBotも通りやすくなって本末転倒だからセキュリティとアクセシビリティのバランスを取ってね。
-                - 例：
-                    - 複数のCAPTCHA形式を組み合わせる
-                    - 時間制限や操作の複雑さを増すなど、CAPTCHAの難易度を調整する。
-        - 装飾、整形、非表示
-            - 純粋な装飾、見た目の整形のためだけに用いられている、利用者に提供されるものではないとき、支援技術が無視できるようにしてね。
-            - 意味がないものなのに、支援技術がそこに何かあるって伝えると、ユーザーが気になっちゃうから無視できるようにした方がいい。
-            - 例：
-                - alt
-                    - alt=””
-                - ARIA属性
-                    - role=”presentation”
-                    - role=”none”
-                - CSSでの背景画像
-                    - background-image
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/text-equiv-all.html#text-equiv-all-techniques-head)
+---
 
-### [1.2 時間依存メディアには代替コンテンツを提供すること](https://waic.jp/translations/WCAG20/Overview.html#media-equiv)
+PDFには、アクセシビリティをサポートする機能がある。
+論理構造やタグ付けPDFを通して、見た目やレイアウト関係なしに、コンテンツの順序を決めることができる。
 
-- [1.2.1 収録済みの、「音声のみ」、「映像のみ」のコンテンツには代替コンテンツを用意しよう(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html)
-    - 収録済みの音声のみの場合
-        - 収録済みの音声と同等のテキストを用意しておこうね。
-    - 収録済の映像しか含まない場合
-        - 収録済みの映像と同等のテキストか音声を用意しておこうね。
-    - ただし、そのメディアがテキストの代替だと明確に明示されているなら気をつけなくて大丈夫だよ。
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html#media-equiv-av-only-alt-techniques-head)
-- [1.2.2 収録済みの音声や音楽を含む映像コンテンツには、キャプションをつけようね(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-captions.html)
-    - キャプションとは？
-        - 字幕と違い、効果音、音楽、笑い声、話者の特定、位置などを含む、会話でない音声情報と同等の内容も伝えるよ。
-        - クローズドキャプション
-            - 音声情報と同等の内容で、プレーヤーによっては表示／非表示を切り替えることができるものを指すよ
-        - オープンキャプション
-            - 非表示にできないキャプション。
-            - キャプションが同等の視覚化された文字画像で映像に埋め込まれている場合などだよ。
-        - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-captions.html#media-equiv-captions-techniques-head)
-- [1.2.3 収録済みの映像コンテンツに「音声解説」か「同期したメディア (視覚と聴覚の両方) のすべての情報をテキスト形式」で提供しよう(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-audio-desc.html)
-    - 音声解説
-        - 重要で、主音声のみではわからない動き、登場人物、シーンの変化、画面上の文字に関する情報を提供するよ。
-    - テキスト形式
-        - 同期したメディア (視覚と聴覚の両方) のすべての情報をテキスト形式で提供するよ。
-        - 会話ではない音声 (笑い声、画面外の声など) を説明し、すべての会話の書き起こしテキストも含むよ。
-        - 音声解説よりもはるかに完全な説明を提供できるよ
-        - 同期したメディアによる提示の一部分として何らかのインタラクションがある場合、ハイパーリンク又は同じ機能を提供するのに必要なものを提示することになる。
-            - 例：
-                - 質問に答えるために、今、ボタンを押してください。
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-audio-desc.html#media-equiv-audio-desc-techniques-head)
-- [1.2.4 ライブの音声や音楽を含む映像コンテンツには、キャプションをつけようね(レベル AA)](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-real-time-captions.html)
-    - 1.2.2のライブ版だよ
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-real-time-captions.html#media-equiv-real-time-captions-techniques-head)
-- [1.2.5 収録済みの映像コンテンツに「音声解説」を提供しよう(レベル AA)](https://waic.jp/translations/UNDERSTANDING-WCAG20/media-equiv-audio-desc-only.html)
-    - 1.2.3で既に「音声解説」を選んでいたら自動的にこの項目も満たしていることになるよ。
-    - 「テキスト形式」を選んでいた場合は、「音声解説」を追加する必要があるよ。
+**論理構造とは？**
 
-### 1.3 情報や構造を、さまざまなツールでも正確に伝えることができるようにしようね
+コンテンツの構造情報を組み込むことができる。
 
-- [1.3.1 ユーザーへの提示形式が変わっても正しく情報が伝わるようにしようね。(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
-    - スクリーンリーダーや、ユーザースタイルシートに置き換わった時などは提示形式が変わったと言えるよ。
-    - 例：
-        - リンクをデフォルトでないフォントで表していた場合、aタグを使っていればスクリーンリーダーを通してもリンクだとわかる。
-        - 「アスタリスク (*) のある項目はすべて必須項目です。」のように説明テキストを提供する。
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html#content-structure-separation-programmatic-techniques-head)
-- [1.3.2 見た目の順序とスクリーンリーダー等が読み上げる順序は一緒にしようね。(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html)
-    - 順序に意味がある場合は必ず順序を揃えよう。
-        - 例：
-            - テーブルやリスト
-            - 見出しや段落
-    - 順序に意味がない場合は気にしなくていいよ
-        - 例：
-            - ナビゲーションメニューとコンテンツ
-            - 補足情報
-    - 順序に意味があるかどうかの判断は、コンテンツ制作者やアクセシビリティチェック者によりそう
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html#content-structure-separation-sequence-techniques-head)
-- [1.3.3 感覚的な特徴に依存しないようにしようね。(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/content-structure-separation-understanding.html)
-    - 視覚に依存しない
-        - 形や色、位置以外の情報も提供しよう
-    - 聴覚に依存しない
-        - アラーム音のみなどではなく、テキストなどでも情報を提供しよう
-    - 触覚に依存しない
-        - バイブや突起のあるボタンなどではなく、視覚や音声などでも情報提供をしよう
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/content-structure-separation-understanding.html#content-structure-separation-understanding-techniques-head)
+構造情報の例（章、見出し、段落、セクション、図、表、脚注）
 
-### 1.4 コントラストなども含め、利用者にとって見やすく聞きやすいものにしようね。
+構造は、HTMLと似たような階層構造になっており、これらにより、見た目とは独立した順序を作成することができる。
 
-- [1.4.1 色が分かりにくい人にも情報が伝わるようにしようね。(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
-    - 色覚異常、お年寄り、白黒ディスプレイ等を使用している人たちにも情報が伝わるようにしようね。
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html#visual-audio-contrast-without-color-techniques-head)
-- [1.4.2 音声が自動的に再生され、その音声が3秒より長く続く場合、音声を一時停止、もしくは音量を下げられるようにしようね。(レベル A)](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-dis-audio.html)（非干渉）
-    - スクリーンリーダーの声が聞こえづらくなっちゃうよ。
-    - そもそも自動的に音声が再生されないようにすることを推奨しているよ。
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-dis-audio.html#visual-audio-contrast-dis-audio-techniques-head)
-- [1.4.3 テキスト等には、少なくとも4.5:1のコントラスト比をつけようね。(レベルAA)](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
-    - 次の場合以外は意識してね
-        - 大きな文字
-            - 18pt(日本語は22pt)、または14pt(日本語は18pt)の太字のテキストには、3:1のコントラスト比をつけてね。
-            - 1pt=1.333px、14pt=約18.5px、18pt=約24px、22pt=約29.5px
-        - 付随的
-            - 装飾、アクティブではないインタラクティブ要素、たまたま写真に写ってた文字など
-        - ロゴタイプ
-            - 気をつけた方がいいかもな時
-                - ロゴに企業名が入っている
-                - ヘッダーにありクリックするとトップページに飛ぶ
-                - altがついている
-    - 認知障害を持つ人で、低コントラストを求める人もいる。
-        - コンテンツの前景色と背景色を調整するメカニズムを推奨する。
-        - この時、達成基準に準じているデフォルトの値に戻せるようにしなくてはならない。
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html#visual-audio-contrast-contrast-techniques-head)
-- [1.4.4 ユーザーがズームしたりフォントサイズを変更したりしても崩れないようにしてね。](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
-    - 拡大できないようにしちゃダメだよ
-    - 200%に拡大した時に、文字が隠れたり重なったりしちゃダメだよ。
-    普通通り使えるし情報を読み取れるようにしてね。
-    - 文字サイズ変更ボタンを提供することは、達成基準を満たす上では必須じゃないよ。
-    - 例：
-        - メールの件名みたいに、はみ出している文字が見えなくても、アクティブにすることによって見れるならOKだよ
-        - maximum-scale=1.0、user-scalable=noをつけていない
-        - フォントサイズをpxで絶対指定していない。（絶対指定しても適合になるケースはあるよ）
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html#visual-audio-contrast-scale-techniques-head)
-- [1.4.5 文字は画像じゃなくてテキストで提供してね。](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html)
-    - 以下の場合は気にしなくて大丈夫だよ。
-        - カスタマイズ可能
-            - 画像の中にあるテキストが利用者のカスタマイズに対応している
-        - 必要不可欠
-            - 企業のロゴに含まれるテキストがブランドのアイデンティティの一部の時とかだよ
-            - 特殊なフォント使ってて画像じゃないと表現できない時とかだよ
-    - 上の二つとか、ズームしたら崩れるとかみたいなことがない限りテキスト使ってね
-    - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html#visual-audio-contrast-text-presentation-techniques-head)
-- [1.4.10 リフローに気をつけてね](https://waic.jp/translations/WCAG21/Understanding/reflow.html)
-    - リフロー
-        - ズームしていくとリフローされるよ（1カラム表示になり）
-        - リフローされたとき、なるべく複数スクロールになったり、コンテンツが画面外に隠れたりしないようにしてね（一応崩れてなかったり全てのコンテンツにアクセスできたらOK）
-        - ズームすると横幅が小さくなる判定されてメディアクエリとかも効くよ
-        - リフローは以下のような仕組みで起きるよ
-            - メディアクエリの影響
-            - コンテンツ幅の縮小
-            - 動的なHTML要素の変更
-        - なるべくレスポンシブがいいよ
-    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/reflow.html#techniques)
-- [1.4.11 非テキスト要素のコントラストに気をつけようね](https://waic.jp/translations/WCAG21/Understanding/non-text-contrast.html)
-    - 隣接する色と3:1のコントラストを保とうね
-    - テキストや背景がしっかりしていれば境界線はなくてもいいよ
-    - 複数の色がコンポーネントに含まれている時でも、コンポーネントの識別に関わらない色はコントラストを気にしなくていいよ
-    
-    ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/be89dc3c-6442-47ed-869e-31119696b207/e262099e-9fc2-4a38-a002-01045c19c00c/image.png)
-    
-    - 1.4.1の色の使用と合わせて気をつけてね
-    - 2.4.7のフォーカスの可視化と合わせて気をつけてね。
-    - フォーカスのコントラストの基準はたくさんあるから、迷ったら1.4.11のページを見てね
-    - HTMLで無効化されているインタラクティブ要素などは、コントラストの要件を満たさなくてもいいよ
-    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/non-text-contrast.html#techniques)
-- [1.4.12 ユーザーがテキストの間隔を変更できるようにしようね](https://waic.jp/translations/WCAG21/Understanding/text-spacing.html)
-    - 指標
-        - 行の間隔 (行送り) をフォントサイズの少なくとも 1.5 倍に設定する
-        - 段落に続く間隔をフォントサイズの少なくとも 2 倍に設定する
-        - 文字の間隔 (字送り) をフォントサイズの少なくとも 0.12 倍に設定する
-        - 単語の間隔をフォントサイズの少なくとも 0.16 倍に設定する
-    - ユーザーが上記の指標に変更しても、コンテンツが崩れないようにしようね
-    - 指標以上にユーザーが設定して崩れた場合は考慮しなくていいよ
-    - ダメな例
-        - テキストがはみ出して切り取られる
-        - テキストが重なり合う
-    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/text-spacing.html#techniques)
-- [1.4.13 ホバーや、フォーカスを当ててコンテンツが表示される時に気をつけてね](https://waic.jp/translations/WCAG21/Understanding/content-on-hover-or-focus.html)
-    - ホバーやキーボードフォーカスを当てたり外したりしたら、追加コンテンツが表示されたり消えたりする時、以下の3点に気をつけてね
-        - 非表示にすることができる
-            - カーソルやフォーカスを動かすことなく、追加コンテンツを非表示にできるようにしてね。
-            - 追加コンテンツがエラーを表示したり、他のコンテンツの邪魔をしていないなら気をつけなくていいよ。
-            - 主に以下の二つの方法があるよ。
-                - 他のコンテンツの邪魔をしないところに配置しようね。
-                - Escキーを押すなど容易に非表示できるようにしようね。
-        - ホバーすることができる
-            - ホバーによって追加コンテンツが表示される場合、
-            ポインタを追加コンテンツ上でも動かせるようにしようね。
-        - 表示が継続される
-            - 以下以外の時は追加コンテンツを表示し続けようね。
-                - ホバーやフォーカスが解除される
-                - 利用者が非表示にした
-                - 追加コンテンツの情報が無効になる
-        -
+**タグ付きPDFとは？**
+
+論理構造を提供する手段の1つ
+
+参考：https://waic.jp/translations/WCAG-TECHS/pdf.html
