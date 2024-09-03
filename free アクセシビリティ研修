@@ -1,0 +1,16 @@
+コントラストチェッカー
+
+https://webaim.org/resources/contrastchecker/
+
+スクリーンリーダー
+
+- Windowsa
+    - NVDA, PC-Talker, JAWS, Microsoft Narratorなど
+- macOS
+    - VoiceOver
+- iOS, iPadOS
+    - VoiceOver（macOSとはほとんど別物）
+- Android
+    - TalkBackなど
+
+[VoiceOverチートシート](https://qiita.com/tsmd/items/3d8e265ae60dfb1e187d)
