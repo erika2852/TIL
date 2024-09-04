@@ -201,4 +201,12 @@
                 - 利用者が非表示にした
                 - 追加コンテンツの情報が無効になる
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/content-on-hover-or-focus.html#techniques)
--
+
+## [2. ユーザーインタフェースやナビなどは操作可能にしとくべきだよ](https://waic.jp/translations/WCAG20/Overview.html#operable)
+
+### [2.1 全ての機能をキーボードから操作可能にしようね](https://waic.jp/translations/WCAG21/Understanding/keyboard-accessible.html)
+
+- [2.1.1 全ての機能は、キーボードで操作できるようにしようね。](https://waic.jp/translations/WCAG21/Understanding/keyboard.html)
+    - 全ての機能は、キーボード操作できるようにしてね。
+    - ただ、マウスの「ドラッグ」や「スワイプ」などは除外して大丈夫だよ。
+    -
