@@ -16,7 +16,7 @@
             - 特定の感覚的体験をつくることを目的としている時は、少なくともそのコンテンツの目的がわかる説明をつけてね
             - 例：フルートのソロ演奏、視覚芸術の作品など
         - CAPTCHA
-            - [そもそもCAPTCHAって？](https://www.notion.so/b576681e0c324e97bf2cb62ae699982e?pvs=21)
+            - [そもそもCAPTCHAって？](https://www.notion.so/CHAPTCHA-b576681e0c324e97bf2cb62ae699982e?pvs=21)
                 - 人間とBotを見分けるテスト的なもの
             - そのCAPCHAの目的を説明してね。
             - 他の感覚による知覚に対応して出力する CAPTCHA の代替形式を提供してね。
@@ -130,7 +130,7 @@
         - コンテンツの前景色と背景色を調整するメカニズムを推奨する。
         - この時、達成基準に準じているデフォルトの値に戻せるようにしなくてはならない。
     - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html#visual-audio-contrast-contrast-techniques-head)
-- [1.4.4 ユーザーがズームしたりフォントサイズを変更したりしても崩れないようにしてね。](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [1.4.4 ユーザーがズームしたりフォントサイズを変更したりしても崩れないようにしてね。(レベル AA)](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
     - 拡大できないようにしちゃダメだよ
     - 200%に拡大した時に、文字が隠れたり重なったりしちゃダメだよ。
     普通通り使えるし情報を読み取れるようにしてね。
@@ -140,7 +140,7 @@
         - maximum-scale=1.0、user-scalable=noをつけていない
         - フォントサイズをpxで絶対指定していない。（絶対指定しても適合になるケースはあるよ）
     - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html#visual-audio-contrast-scale-techniques-head)
-- [1.4.5 文字は画像じゃなくてテキストで提供してね。](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html)
+- [1.4.5 文字は画像じゃなくてテキストで提供してね。（AA）](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html)
     - 以下の場合は気にしなくて大丈夫だよ。
         - カスタマイズ可能
             - 画像の中にあるテキストが利用者のカスタマイズに対応している
@@ -149,7 +149,7 @@
             - 特殊なフォント使ってて画像じゃないと表現できない時とかだよ
     - 上の二つとか、ズームしたら崩れるとかみたいなことがない限りテキスト使ってね
     - [達成方法](https://waic.jp/translations/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html#visual-audio-contrast-text-presentation-techniques-head)
-- [1.4.10 リフローに気をつけてね](https://waic.jp/translations/WCAG21/Understanding/reflow.html)
+- [1.4.10 リフローに気をつけてね（AA）](https://waic.jp/translations/WCAG21/Understanding/reflow.html)
     - リフロー
         - ズームしていくとリフローされるよ（1カラム表示になり）
         - リフローされたとき、なるべく複数スクロールになったり、コンテンツが画面外に隠れたりしないようにしてね（一応崩れてなかったり全てのコンテンツにアクセスできたらOK）
@@ -160,7 +160,7 @@
             - 動的なHTML要素の変更
         - なるべくレスポンシブがいいよ
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/reflow.html#techniques)
-- [1.4.11 非テキスト要素のコントラストに気をつけようね](https://waic.jp/translations/WCAG21/Understanding/non-text-contrast.html)
+- [1.4.11 非テキスト要素のコントラストに気をつけようね（1.4.11）](https://waic.jp/translations/WCAG21/Understanding/non-text-contrast.html)
     - 隣接する色と3:1のコントラストを保とうね
     - テキストや背景がしっかりしていれば境界線はなくてもいいよ
     - 複数の色がコンポーネントに含まれている時でも、コンポーネントの識別に関わらない色はコントラストを気にしなくていいよ
@@ -172,7 +172,7 @@
     - フォーカスのコントラストの基準はたくさんあるから、迷ったら1.4.11のページを見てね
     - HTMLで無効化されているインタラクティブ要素などは、コントラストの要件を満たさなくてもいいよ
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/non-text-contrast.html#techniques)
-- [1.4.12 ユーザーがテキストの間隔を変更できるようにしようね](https://waic.jp/translations/WCAG21/Understanding/text-spacing.html)
+- [1.4.12 ユーザーがテキストの間隔を変更できるようにしようね（AA）](https://waic.jp/translations/WCAG21/Understanding/text-spacing.html)
     - 指標
         - 行の間隔 (行送り) をフォントサイズの少なくとも 1.5 倍に設定する
         - 段落に続く間隔をフォントサイズの少なくとも 2 倍に設定する
@@ -184,7 +184,7 @@
         - テキストがはみ出して切り取られる
         - テキストが重なり合う
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/text-spacing.html#techniques)
-- [1.4.13 ホバーや、フォーカスを当ててコンテンツが表示される時に気をつけてね](https://waic.jp/translations/WCAG21/Understanding/content-on-hover-or-focus.html)
+- [1.4.13 ホバーや、フォーカスを当ててコンテンツが表示される時に気をつけてね（AA）](https://waic.jp/translations/WCAG21/Understanding/content-on-hover-or-focus.html)
     - ホバーやキーボードフォーカスを当てたり外して、追加コンテンツが表示されたり消えたりする時、以下の3点に気をつけてね
         - 非表示にすることができる
             - カーソルやフォーカスを動かすことなく、追加コンテンツを非表示にできるようにしてね。
@@ -206,7 +206,7 @@
 
 ### [2.1 全ての機能をキーボードから操作可能にしようね](https://waic.jp/translations/WCAG21/Understanding/keyboard-accessible.html)
 
-- [2.1.1 全ての機能は、キーボードで操作できるようにしようね。](https://waic.jp/translations/WCAG21/Understanding/keyboard.html)
+- [2.1.1 全ての機能は、キーボードで操作できるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/keyboard.html)
     - 全ての機能は、キーボード操作できるようにしてね。
     - ただ、マウスの「ドラッグ」や「スワイプ」などは除外して大丈夫だよ。
     - マウスキーの使用はこの基準の達成には貢献しないよ。
@@ -224,4 +224,39 @@
             - 金額入力フィールドなどでは、Num Lockの状態に依存せずに数字が正しく認識されるようにする。
             - etc..
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/keyboard.html#techniques)
-- 2.1.2
+- [2.1.2 キーボードトラップがないようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/no-keyboard-trap.html)（非干渉）
+    - ポップアップやフォームなど、様々なコンテンツにおいて、
+    それぞれのコンテンツ内の要素全部に移動できるようにしようね。
+    - そこから出れないとかしたらダメだよ。
+    - 修飾キーを伴わない矢印キー、Tab キー、又はフォーカスを外すその他の標準的な方法でフォーカスを外せない場合は、フォーカスを外す方法を利用者に通知しないとダメだよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/no-keyboard-trap.html#techniques)
+- [2.1.4 ショートカットキーを実装している場合は気をつけようね。（A）](https://waic.jp/translations/WCAG21/Understanding/character-key-shortcuts.html)
+    - 文字、句読点、数字、又は記号のみを使用したショートカットを実装している場合は少なくとも以下のどれかを満たしてね。
+        - 解除
+            - ショートカットを解除できるようにしようね
+        - 再割り当て
+            - 一つ以上の非印字文字 (例えば Ctrl や Alt など) を使用するショートカットに変更できる
+        - フォーカス中のみ使える
+            - リストボックスやドロップダウンなどのコンポーネントは、
+            そのコンポーネントにフォーカスがある時のみショートカットが有効になる。
+    - メリットに書かれている以下がわかりやすいかも
+        - 単一キーのショートカットを無効にできるようにすると、音声入力の利用者が単一キーのショートカットを提供しているプログラムを十分に活用できるようにする。
+        - キーボードのみの利用者で巧緻性に課題がある場合、誤ってキーを押す可能性もある。これらの利用者は、問題のある単一文字のショートカットを無効にするか、又は最低でもひとつの非印字文字キーを含めるように変更することで避けることができる。
+        - *全ての*ショートカットキーを再割り当てできるようにすると、異なるアプリケーション間で同じ動作を実行するために同じショートカットを割り当てることができるため、一部の認知障害のある利用者に役立つ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/character-key-shortcuts.html#techniques)
+
+### [2.2 どんな利用者でもコンテンツを理解できるように十分な時間を確保しようね](https://waic.jp/translations/WCAG21/Understanding/enough-time.html)
+
+- 2.2.1 コンテンツに制限時間をつける場合は気をつけてね。
+    - 少なくとも以下の事項は満たしておいてね。
+        - 解除
+            - 利用者が制限時間を解除できる。
+        - 調整
+            - 制限時間付きのコンテンツが始まる前に、少なくともデフォルト設定の10倍以上にできるようにする。
+        - 延長
+            - 少なくとも制限時間が終わる20秒前に利用者に通知し、
+            簡単な操作で10倍以上延長できるようにする。
+        - リアルタイムの例外
+            - リアルタイムのイベント (例えば、オークション) において制限時間が必須の要素で、その制限時間に代わる手段が存在しない。しょうがない。
+        - 必要不可欠な例外
+            - 制限時間が必要不可欠（他で代打が効かない）で、制限時間を延長することがコンテンツの動作を無効にすることになる。
