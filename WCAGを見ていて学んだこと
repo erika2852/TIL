@@ -315,7 +315,7 @@
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/page-titled.html#techniques)
 - [2.4.3 フォーカス順序に気をつけようね（A）](https://waic.jp/translations/WCAG21/Understanding/focus-order.html)
     - ページの意味に沿った順序でフォーカスを受け取るようにしようね。
-- 2.4.4 リンクは飛び先がわかるようにしようね（A）
+- [2.4.4 リンクは飛び先がわかるようにしようね（A）](https://waic.jp/translations/WCAG21/Understanding/link-purpose-in-context.html)
     - リンクと飛び先ページのタイトルが一緒なのはグッドプラクティスだよ
     - リンクに関して説明をしたいことがあるよね。
         - リンクより前に説明書こうね。
@@ -348,3 +348,24 @@
                 <a href="#" aria-controls="info-section" aria-expanded="false">詳細情報を表示</a>
                 <div id="info-section" hidden>詳細情報がここに表示されます。</div>
                 ```
+                
+        - ゲームにおける選択肢のドア1、ドア2、ドア3とかなら進む先がわからなくてもいいよ。
+        - [達成方法](https://waic.jp/translations/WCAG21/Understanding/link-purpose-in-context.html#techniques)
+- [2.4.5 サイトのコンテンツを見つける手段は複数用意しようね（AA）](https://waic.jp/translations/WCAG21/Understanding/multiple-ways.html)
+    - 利用者それぞれに合った手段でコンテンツを見つけることができるように、複数の手段を用意しようね。
+        - ナビバー経由でスクロールするよりも、
+        検索機能を利用して移動する方がいい人もいるよ。
+        - 認知障害がある人は、複数のページを経由するよりも、
+        サイトマップとか目次みたいな全体を見渡すことができるものを好むことがあるよ。
+        - 逆に、サイトのコンセプトやレイアウトを理解するために複数ページ見たい人もいるよ。
+    - 小規模サイトでも意識しようね。
+        - 最低限サイトマップみたいな以下だけでもいいかも
+            - ホームから各ページへのリンク
+            - 各ページからホームへのリンク
+    - ウェブページが一連のプロセスの中の 1 ステップ又は結果である場合は除くよ。
+        - 例：Web口座に送金を行うと次は完了ページに遷移するしかない。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/multiple-ways.html#techniques)
+- 2.4.6 もし見出しやラベルが付いているなら、対象コンテンツの内容がわかるようにしようね。（AA）
+    - 見出しやラベルからコンテンツの内容がわかると、ユーザーがコンテンツを探しやすくなる。
+    - 単語ひとつであってもコンテンツをナビゲートするための手掛かりになれば十分である。
+    - この達成基準は、「見出しやラベルをつけろ」ということではないよ。
