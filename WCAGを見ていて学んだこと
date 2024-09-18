@@ -381,3 +381,18 @@
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/focus-visible.html#techniques)
 
 ### [2.5 利用者がキーボード以外の入力方法でも機能を操作できるようにしようね。](https://waic.jp/translations/WCAG21/Understanding/input-modalities.html)
+
+- [2.5.1 マルチポイント、軌跡ベースのジェスチャなしにコンテンツを操作できるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/pointer-gestures.html)
+    - マルチポイント
+        - 複数本の指で操作すること
+            - 2本指でズーム
+            - 3本指でのスワイプ
+        - 一本の指や棒しか使えない人は困るよ
+    - 軌跡ベースのジェスチャ
+        - ポインタの始点と終点の中間に特定の箇所を経由すること
+            - スワイプ
+            - スライダー
+            - 描画
+        - ドラッグは始点と終点しか使わないから軌跡ベースのジェスチャではないよ。
+    - クリックやダブルタップ、長押し等でも操作できるならこれらを使ってもいいよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/pointer-gestures.html#techniques)
