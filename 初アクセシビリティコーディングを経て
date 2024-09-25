@@ -1,0 +1,16 @@
+- 改行どうする
+    - brタグにaria-hiddenをつける
+        - https://a11y.cybozu.io/
+    - 親：grid（flex）、子：span（blockにする）
+        - https://www.d-zero.co.jp/accessibility/
+- imgをpタグで囲むのダメ？
+    - あんまり良くない
+    - figureで囲む？
+- 単位
+    - 文字はemかrem
+    - 余白はpxかem,rem
+- dl/dtかtableどっちを使うか
+    - tableが良さそう
+        - 意図した読み上げになるから
+        - SEO的にもよし
+    - https://zenn.dev/kagan/articles/html-dl-vs-ul-vs-table
