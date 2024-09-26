@@ -5,7 +5,9 @@
         - https://www.d-zero.co.jp/accessibility/
 - imgをpタグで囲むのダメ？
     - あんまり良くない
-    - figureで囲む？
+    - pはaltに意味がある時だけ
+    - figureはキャプションがある時
+    - 他はdivやspan
 - 単位
     - 文字はemかrem
     - 余白はpxかem,rem
@@ -14,3 +16,14 @@
         - 意図した読み上げになるから
         - SEO的にもよし
     - https://zenn.dev/kagan/articles/html-dl-vs-ul-vs-table
+- 装飾的画像はalt=””にする
+    - 読み上げられなくなる
+- アクセシブルなtable
+    - tableにラベルやキャプションをつける
+    - scope属性をつける
+- ボタンのレイアウト
+    - 直接buttonタグに擬似要素がつけられないため、何かしらのタグで囲む必要あり。
+- セル内文字の位置はvertical-align
+- tableのgap
+    - border-collapse: separate;
+    - border-spacing: 9px 0;
