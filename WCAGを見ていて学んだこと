@@ -16,7 +16,7 @@
             - 特定の感覚的体験をつくることを目的としている時は、少なくともそのコンテンツの目的がわかる説明をつけてね
             - 例：フルートのソロ演奏、視覚芸術の作品など
         - CAPTCHA
-            - [そもそもCAPTCHAって？](https://www.notion.so/CHAPTCHA-b576681e0c324e97bf2cb62ae699982e?pvs=21)
+            - [そもそもCAPTCHAって？](https://www.notion.so/b576681e0c324e97bf2cb62ae699982e?pvs=21)
                 - 人間とBotを見分けるテスト的なもの
             - そのCAPCHAの目的を説明してね。
             - 他の感覚による知覚に対応して出力する CAPTCHA の代替形式を提供してね。
@@ -233,3 +233,391 @@
                 - 利用者が非表示にした
                 - 追加コンテンツの情報が無効になる
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/content-on-hover-or-focus.html#techniques)
+
+## [2. ユーザーインタフェースやナビなどは操作可能にしとくべきだよ](https://waic.jp/translations/WCAG20/Overview.html#operable)
+
+### [2.1 全ての機能をキーボードから操作可能にしようね](https://waic.jp/translations/WCAG21/Understanding/keyboard-accessible.html)
+
+- [2.1.1 全ての機能は、キーボードで操作できるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/keyboard.html)
+    - 全ての機能は、キーボード操作できるようにしてね。
+    - ただ、マウスの「ドラッグ」や「スワイプ」などは除外して大丈夫だよ。
+    - マウスキーの使用はこの基準の達成には貢献しないよ。
+    - 修飾キーロックと衝突して予期しない結果を生じさせないようにしてね。
+        - 問題
+            - ウェブサイトのログインフォームで、ユーザーがCaps Lockをオンにしたままパスワードを入力する場合。
+                - 小文字で入力したつもりが大文字で入力されており、
+                再入力の必要が出てくる。
+            - 金額を入力するフィールドがある場合。
+                - Num Lockがオフになっているとテンキーで入力した時に、
+                期待通りの数字が入力できない可能性がある。
+            - etc..
+        - 解決
+            - Caps Lockがオンの時にはその旨をユーザーに通知する。
+            - 金額入力フィールドなどでは、Num Lockの状態に依存せずに数字が正しく認識されるようにする。
+            - etc..
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/keyboard.html#techniques)
+- [2.1.2 キーボードトラップがないようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/no-keyboard-trap.html)（非干渉）
+    - ポップアップやフォームなど、様々なコンテンツにおいて、
+    それぞれのコンテンツ内の要素全部に移動できるようにしようね。
+    - そこから出れないとかしたらダメだよ。
+    - 修飾キーを伴わない矢印キー、Tab キー、又はフォーカスを外すその他の標準的な方法でフォーカスを外せない場合は、フォーカスを外す方法を利用者に通知しないとダメだよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/no-keyboard-trap.html#techniques)
+- [2.1.4 ショートカットキーを実装している場合は気をつけようね。（A）](https://waic.jp/translations/WCAG21/Understanding/character-key-shortcuts.html)
+    - 文字、句読点、数字、又は記号のみを使用したショートカットを実装している場合は少なくとも以下のどれかを満たしてね。
+        - 解除
+            - ショートカットを解除できるようにしようね
+        - 再割り当て
+            - 一つ以上の非印字文字 (例えば Ctrl や Alt など) を使用するショートカットに変更できる
+        - フォーカス中のみ使える
+            - リストボックスやドロップダウンなどのコンポーネントは、
+            そのコンポーネントにフォーカスがある時のみショートカットが有効になる。
+    - メリットに書かれている以下がわかりやすいかも
+        - 単一キーのショートカットを無効にできるようにすると、音声入力の利用者が単一キーのショートカットを提供しているプログラムを十分に活用できるようにする。
+        - キーボードのみの利用者で巧緻性に課題がある場合、誤ってキーを押す可能性もある。これらの利用者は、問題のある単一文字のショートカットを無効にするか、又は最低でもひとつの非印字文字キーを含めるように変更することで避けることができる。
+        - *全ての*ショートカットキーを再割り当てできるようにすると、異なるアプリケーション間で同じ動作を実行するために同じショートカットを割り当てることができるため、一部の認知障害のある利用者に役立つ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/character-key-shortcuts.html#techniques)
+
+### [2.2 どんな利用者でもコンテンツを理解できるように十分な時間を確保しようね](https://waic.jp/translations/WCAG21/Understanding/enough-time.html)
+
+- [2.2.1 コンテンツに制限時間をつける場合は気をつけてね。（A）](https://waic.jp/translations/WCAG21/Understanding/timing-adjustable.html)
+    - 少なくとも以下の事項は満たしておいてね。
+    できればやって欲しい順で並べてるよ。
+        - 解除
+            - 利用者が制限時間を解除できる。
+        - 調整
+            - 制限時間付きのコンテンツが始まる前に、少なくともデフォルト設定の10倍以上にできるようにする。
+        - 延長
+            - 少なくとも制限時間が終わる20秒前に利用者に通知し、
+            簡単な操作で10倍以上延長できるようにする。
+        - リアルタイムの例外
+            - リアルタイムのイベント (例えば、オークション) において制限時間が必須の要素で、その制限時間に代わる手段が存在しない。しょうがない。
+        - 必要不可欠な例外
+            - 制限時間が必要不可欠（他で代打が効かない）で、制限時間を延長することがコンテンツの動作を無効にすることになる。しょうがない。
+    - 達成基準2.2.2で停止にできたりするならこの達成基準は適用されないよ。
+    - サーバーに関すること
+        - 制限時間がないサーバーのリダイレクトにはこの達成基準が適用されないよ。
+        - セキュリティ上の懸念のために制限時間をつけている場合はコンテンツによって制限されておりこの達成基準が適用されるよ。
+        - ユーザーエージェントやインターネット固有（コンテンツ以外）のもので設定されているものにはこの達成基準が適用されないよ。
+        - Webサーバーにより設定される制限時間は適用されるよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/timing-adjustable.html#techniques)
+- [2.2.2 自動更新したりするコンテンツには停止や非表示ができるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/pause-stop-hide.html)（非干渉）
+    - 動き、点滅、スクロール
+        - 動きのある、点滅している、又はスクロールしている情報が、(1) 自動的に開始し、(2) 5 秒よりも長く継続し、(3) その他のコンテンツと並行して提示される場合、利用者がそれらを一時停止、停止、又は非表示にできるようにしてね。
+        それが必要不可欠ならしょうがないよ。
+        - 例：動画、アニメーション、リアルタイムゲーム、スクロールする株価表示
+    - 自動更新
+        - (1) 自動的に開始し、 (2) その他のコンテンツと並行して提示される場合、利用者がそれを一時停止・停止、非表示、更新頻度を調整することができるようにしようね。
+        自動更新が必要不可欠な動作の一部である場合は除く。
+    - どちらにも共通するよ
+        - 自動更新の際、利用者が更新頻度を制御できるようにしようね。
+        - 自動更新は少なくとも5秒は間隔とろうね。
+    - 一時停止したコンテンツは、
+        - 一時停止した箇所から再開する。
+        ただの録画された動画とかならこっちが良さそう。
+        - 最新の箇所から再開する。
+        気象レーダーや交通情報カメラなどはこっちの方が良さそう。
+    - 一時停止
+        - 一時停止している間ページが使用できなくなるとかはダメだよ。
+            - フォーカスを特定の要素に当ててる間は一時停止するとか。
+    - 点滅と閃光の違い
+        - 点滅
+            - 利用者の注意を散らせるコンテンツを指すよ。
+            - 停止させることができて短時間なら許せるよ。
+        - 閃光
+            - 1秒間に3回より多く光って、光感受性発作を引き起こす恐れがあるコンテンツだよ。
+            - 1秒間だけとか、停止できるとか関係なくダメだよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/pause-stop-hide.html#techniques)
+
+- [2.3.1 閃光を起こさないようにしようね。起こすにしても閾値を下回るようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/three-flashes-or-below-threshold.html)（非干渉）
+    - 1秒間に3回を超える先行を放つものはダメだよ
+    - 一般閃光閾値や赤色先行閾値を下回っていればいいよ
+    - フラッシュが明るすぎてもダメだよ
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/three-flashes-or-below-threshold.html#techniques)
+
+### [2.4 利用者がコンテンツを探し出したり、ナビゲートしたりできるようにしようね。](https://waic.jp/translations/WCAG21/Understanding/navigable.html)
+
+- [2.4.1 ブロックスキップできるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/bypass-blocks.html)
+    - 繰り返されるコンテンツをスキップできるようにしようね。
+    - 大きく2つ方法があるよ（詳しくは達成方法を見てね）
+        - ブロックをスキップするリンク置く
+        - スキップ可能な方法で繰り返されるブロックをグループ化する
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/bypass-blocks.html#techniques)
+- [2.4.2 ページにはタイトルをつけようね（A）](https://waic.jp/translations/WCAG21/Understanding/page-titled.html#techniques)
+    - titleタグ使ってね
+    - そのページがどんなページなのかすぐわかるようになるよ
+    - 他のページとの識別ができるようになるよ
+    - リンクと飛び先ページのタイトルが一緒なのはグッドプラクティスだよ
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/page-titled.html#techniques)
+- [2.4.3 フォーカス順序に気をつけようね（A）](https://waic.jp/translations/WCAG21/Understanding/focus-order.html)
+    - ページの意味に沿った順序でフォーカスを受け取るようにしようね。
+- [2.4.4 リンクは飛び先がわかるようにしようね（A）](https://waic.jp/translations/WCAG21/Understanding/link-purpose-in-context.html)
+    - リンクと飛び先ページのタイトルが一緒なのはグッドプラクティスだよ
+    - リンクに関して説明をしたいことがあるよね。
+        - リンクより前に説明書こうね。
+        - ARIA技術を使ってもいいよ。
+            - aria-labelledby
+                
+                ```html
+                <p id="link-description">このリンクは、商品の詳細情報を表示します。</p>
+                <a href="product.html" aria-labelledby="link-description">商品詳細</a>
+                ```
+                
+            - aria-describedby
+                
+                ```html
+                <a href="product.html" aria-describedby="link-description">商品詳細</a>
+                <p id="link-description">このリンクは、商品の詳細情報を表示します。</p>
+                ```
+                
+            - aria-label
+                - 説明が短い時に使うといいよ
+                
+                ```html
+                <a href="product.html" aria-label="商品の詳細情報">商品詳細</a>
+                ```
+                
+            - aria-controls
+                - そのリンクが何かを動かすものならこれ
+                
+                ```html
+                <a href="#" aria-controls="info-section" aria-expanded="false">詳細情報を表示</a>
+                <div id="info-section" hidden>詳細情報がここに表示されます。</div>
+                ```
+                
+        - ゲームにおける選択肢のドア1、ドア2、ドア3とかなら進む先がわからなくてもいいよ。
+        - [達成方法](https://waic.jp/translations/WCAG21/Understanding/link-purpose-in-context.html#techniques)
+- [2.4.5 サイトのコンテンツを見つける手段は複数用意しようね（AA）](https://waic.jp/translations/WCAG21/Understanding/multiple-ways.html)
+    - 利用者それぞれに合った手段でコンテンツを見つけることができるように、複数の手段を用意しようね。
+        - ナビバー経由でスクロールするよりも、
+        検索機能を利用して移動する方がいい人もいるよ。
+        - 認知障害がある人は、複数のページを経由するよりも、
+        サイトマップとか目次みたいな全体を見渡すことができるものを好むことがあるよ。
+        - 逆に、サイトのコンセプトやレイアウトを理解するために複数ページ見たい人もいるよ。
+    - 小規模サイトでも意識しようね。
+        - 最低限サイトマップみたいな以下だけでもいいかも
+            - ホームから各ページへのリンク
+            - 各ページからホームへのリンク
+    - ウェブページが一連のプロセスの中の 1 ステップ又は結果である場合は除くよ。
+        - 例：Web口座に送金を行うと次は完了ページに遷移するしかない。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/multiple-ways.html#techniques)
+- [2.4.6 もし見出しやラベルが付いているなら、対象コンテンツの内容がわかるようにしようね。（AA）](https://waic.jp/translations/WCAG21/Understanding/headings-and-labels.html)
+    - 見出しやラベルからコンテンツの内容がわかると、ユーザーがコンテンツを探しやすくなる。
+    - 単語ひとつであってもコンテンツをナビゲートするための手掛かりになれば十分である。
+    - 1.3.1や4.1.2との関係
+        - この達成基準は、「見出しやラベルをつけろ」ということではないよ。
+        - どちらか片方に合格していてどちらか片方に引っかかる場合もあるよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/headings-and-labels.html#techniques)
+- [2.4.7 キーボードフォーカスが見えるようにしようね。（AA）](https://waic.jp/translations/WCAG21/Understanding/focus-visible.html)
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/focus-visible.html#techniques)
+
+### [2.5 利用者がキーボード以外の入力方法でも機能を操作できるようにしようね。](https://waic.jp/translations/WCAG21/Understanding/input-modalities.html)
+
+- [2.5.1 マルチポイント、軌跡ベースのジェスチャなしにコンテンツを操作できるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/pointer-gestures.html)
+    - マルチポイント
+        - 複数本の指で操作すること
+            - 2本指でズーム
+            - 3本指でのスワイプ
+        - 一本の指や棒しか使えない人は困るよ
+    - 軌跡ベースのジェスチャ
+        - ポインタの始点と終点の中間に特定の箇所を経由すること
+            - スワイプ
+            - スライダー
+            - 描画
+        - ドラッグは始点と終点しか使わないから軌跡ベースのジェスチャではないよ。
+    - なるべくクリックやダブルタップ、長押し等で代用できるようにしてね。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/pointer-gestures.html#techniques)
+- [2.5.2 シングルポインタを使った操作はキャンセルできるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/pointer-cancellation.html#dfn-down-event)
+    - シングルポインタ
+        - シングルタップ・クリック、ダブルタップ・クリック、長押し、軌跡ベースのジェスチャなど
+    - シングルポインタを使った操作は以下の要件の1つは満たそうね。
+        - ダウンイベントを使用しないようにしようね
+            - 間違ってクリックしたり指が当たっただけで動作しちゃう、、
+            - アップイベントを使うようにしょうね。
+                - キーボードでも指でも機能するよ
+        - 中止か戻すかできるようにしようね
+            - ドラッグ&ドロップみたいな、ダウンイベントを使用せざるを得ない時はこれ気をつけようね。
+            - アイテムが押下されたら視覚的な反応でわかるから、ユーザーがそこで中止をできるようにしようね。
+                - 例
+                    - 元に戻すボタンの実装
+                    - 最初の場所に移動させたらアクションを中止
+                    - アクションを中止させる領域を作る
+        - 長押し前提でアップイベントで元に戻せるならダウンイベントを使っても良いよ。
+            - 例
+                - 動画を長押しする。
+                    - ダウンイベントでポップアップが出てプレビューが流れる。
+                    - アップイベントでポップアップが閉じる。
+        - ダウンイベントじゃなきゃダメな時はいいよ
+            - 例
+                - ピアノアプリの鍵盤を押した時に音がなる。
+                - 射撃ゲーム
+        - [達成基準](https://waic.jp/translations/WCAG21/Understanding/pointer-cancellation.html#techniques)
+- [2.5.3 インタラクティブな要素には名前（name）をつけようね。（A）](https://waic.jp/translations/WCAG21/Understanding/label-in-name.html)
+    - ほとんどのインタラクティブ要素には可視のテキストラベルがついている。
+    - どのテキストをその要素のラベルにするか決める必要があるよ
+        - コンボボックス、ドロップダウンリスト、テキスト入力、及びその他のウィジェットのすぐ左 (又は、左側のラベルがない場合、各入力のすぐ上で左端に揃えられる)
+        - チェックボックス及びラジオボタンのすぐ右側
+            - ボタン及びタブの内側、又はボタンとして機能するアイコンのすぐ下
+    - 可視のテキストラベルがない時はこの達成基準が適用されないよ。
+        - ただ他の基準に引っかかってる可能性高いよ
+    - ラベルと名前はなるべく一致させようね。
+        - リッチテキストの文字を太くするBとか、斜体にするIにつける名前は機能名がいいよ。
+        - 音声読み上げでは大文字だろうと小文字だろうと変わらないけど、
+        ラベルが大文字ならなるべく大文字に合わせる方がいいよ
+    - 数式は記号文字だけどラベルとして使ってもいいよ
+        - 例
+            - 11×3=33
+                - 「11*3=33」のように、正しい演算子を使ってね
+                - 「11*3は33になる」みたいな書き方は人によって解釈が異なりそうだからやめてね。
+    - [Accessible Name and Description Computation 1.1](https://www.w3.org/TR/accname-1.1/) 及び [HTML Accessibility API Mappings 1.0](https://w3c.github.io/html-aam/#accessible-name-and-description-computation) でどのようにアクセシブルなnameが決まるか知る必要があるよ。
+        - 名前の上書きに気をつけてね。
+            - aria-labelが一番優先されるから、既に可視ラベルがある場合は使わないなど気をつけるべきだよ。
+            - なるべくlabel要素を使う方がいいよ。
+        - 以下の要素等はアクセシブルな名前として計算されないよ
+            - 見出しや指示など
+                - 例：「このフィールドにユーザー名を入力してください」
+            - グループラベルなど
+                - legendやfieldset、またはgroupやradiogroupの役割を持つ要素
+    - 例
+        - ボタン
+            - 可視ラベル: 「送信」
+            - アクセシブルな名前: aria-labelが設定されていない場合、ボタンのテキストがそのままアクセシブルな名前になるよ。
+            この場合、「送信」がそのまま読み上げられるよ。
+        - テキストフィールド
+            - 可視ラベル: <label for="username">ユーザー名</label>
+            - テキストフィールド: <input type="text" id="username">
+            - アクセシブルな名前: label要素がフィールドに関連付けられているため、スクリーンリーダーは「ユーザー名」と読み上げられるよ。
+        - チェックボックス
+            - 可視ラベル: <label for="subscribe">ニュースレターを購読</label>
+            - チェックボックス: <input type="checkbox" id="subscribe">
+            - アクセシブルな名前: チェックボックスに関連付けられたラベルがそのままアクセシブルな名前となり、「ニュースレターを購読」と読み上げられるよ。
+        - リンク
+            - 可視ラベル: <a href="/contact">お問い合わせ</a>
+            - アクセシブルな名前: リンクのテキストがそのまま読み上げられ、「お問い合わせ」となるよ。
+    - [達成基準](https://waic.jp/translations/WCAG21/Understanding/label-in-name.html#techniques)
+- [2.5.4 デバイスの動きやユーザーの動きで操作できる機能がある時は以下に気をつけてね。（A）](https://waic.jp/translations/WCAG21/Understanding/motion-actuation.html)
+    - これらのモーションで動くものは、別のメカニズムでも動かせるようにしたり、
+    誤作動を防ぐためOFFにできるようにしようね。
+        - [事例](https://waic.jp/translations/WCAG21/Understanding/motion-actuation.html#examples)
+    - この基準はデバイスに向かってジェスチャをする、デバイスを傾ける、デバイスを振るなどの動作に直接反応するセンサーを介した入力に関するものだよ。
+        - キーボードやポイント操作などに関連した動作は入らないよ。
+    - 以下のような人たちのための基準だよ
+        - 車椅子にデバイスが固定してある人（振れない、傾けられない）
+        - 運動障害、振戦である人（誤作動を起こす）
+    - 万歩計機能などしょうがない場合は例外だよ。
+    - [達成基準](https://waic.jp/translations/WCAG21/Understanding/motion-actuation.html#techniques)
+
+## [3. 情報やコンテンツの操作はわかるようにしとかないとダメだよ。](https://waic.jp/translations/WCAG22/#understandable)
+
+### [3.1 テキストコンテンツの読み取りや理解ができるようにしようね。](https://waic.jp/translations/WCAG21/Understanding/readable.html)
+
+- [3.1.1 ページのデフォルト言語がどの言語であるか、プログラムが解釈できるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/language-of-page.html)
+    - headerにあるlang属性のことだよ
+    - ↑を正しくつけることによって起きるいいこと
+        - 支援技術と従来のユーザエージェント
+            - テキストをより正確に描画することができる
+        - スクリーンリーダー
+            - 正しい発音規則を読み込むことができる。
+        - ビジュアルブラウザ
+            - 文字や書体を正しく表示することができる。
+        - メディアプレーヤー
+            - キャプションを正しく表示できる。
+        - 1つのページに複数の言語が使われている時は、
+        割合が大きい方がデフォルト言語になるよ。
+        （同じ割合なら最初に使われた言語になる。）
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/language-of-parts.html#techniques)
+- [3.1.2 ページの中にデフォルト言語と違う言語が出てくる時に気をつけようね。（AA）](https://waic.jp/translations/WCAG21/Understanding/language-of-parts.html)
+    - ページの中でデフォルト言語と違う言語の言葉が出てくる時は、違う言語であることを示そうね。
+    - その要素にlang属性を使うといいよ。
+    - 「rendezvous」はフランス語の単語だけど、英語でもよく使われているから英語の文中で言語を示さなくても問題ないよ。
+    - 「ホモ サピエンス」や「ヘルツ」などの専門用語も特に言語を示さなくていいよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/language-of-parts.html#techniques)
+
+### [3.2 Webページの表示や挙動を予測可能にしようね。](https://waic.jp/translations/WCAG21/Understanding/predictable.html)
+
+- [3.2.1 フォーカス時に何かアクションを起こさないようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/on-focus.html)
+    - 以下みたいなことはダメだよ。
+        - コンポーネントがフォーカスを受け取るときにフォームが自動的に送信される。
+        - コンポーネントがフォーカスを受け取るときに新しいウィンドウを開く。
+        - コンポーネントがフォーカスを受け取るときにフォーカスが別のコンポーネントに変更される。
+    - focusイベントではなく、activeイベントを使おうね。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/on-focus.html#techniques)
+- [3.2.2 インタラクティブ要素で予想外の変化を起こすようなことはしないでね。（A）](https://waic.jp/translations/WCAG21/Understanding/on-input.html)
+    - チェックボックスの選択やテキストボックスへのテキストの入力は、
+    変化が想像できる。（チェックがつく、テキストが表示される。）
+    - リンクやボタンはユーザーの動きによって変化することは予想されないので、
+    ここで何か予想外のことをしたらダメだよ。（視覚や知覚などに障害を持つ人が気付きにくいよ）
+    - ポップアップに気づきにくい人のために、予めこのボタンを押すとポップアップが出る旨を伝えるなどした方が良いよ。
+    - 新しいウインドウを開いた時とかも気づかないから通知しておいた方がいいよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/on-input.html#techniques)
+- [3.2.3 ナビゲーションの位置や中身の順序は各ページで揃えようね。（AA）](https://waic.jp/translations/WCAG21/Understanding/consistent-navigation.html)
+    - 繰り返されるコンテンツの位置や順序は揃えたら
+    ユーザーが目的であるものを探しやすくなるよ。
+    - 認知的限界のある利用者、ロービジョンの利用者、知的障害のある利用者に加えて、
+    全盲の利用者に役立つ。
+    - ページごとによってナビの中のリンクを追加したり削除してもいいけど、
+    その他のリンクの順序関係は変えないでね。
+    - ユーザーが順序を変えている場合は例外だよ。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/consistent-navigation.html#techniques)
+- [3.2.4 同じコンポーネントはアクセシブルな名前も揃えようね（AA）](https://waic.jp/translations/WCAG21/Understanding/consistent-identification.html)
+    - 同じ機能で見た目なのに、読み上げ方が違うと混乱しちゃうよ。
+    - 画像やアイコンも同様に代替テキストを揃えようね。
+    - ページ内だけじゃなく、サイト一式で考えようね。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/consistent-identification.html#techniques)
+
+### 3.3 ユーザーのミスを防ぎ修正支援をしようね。
+
+- [3.3.1 エラーが発生した時、何が誤ってるかわかるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/error-identification.html)
+    - 「エラーがあります」ではなく、内容を詳しく説明しようね。
+    - スクリーンリーダーを使用しているユーザーは、視覚的なエラー表示に気づかないので、
+    音声で読み上げる必要があるよ。
+        - aria属性でできるよ。
+        - jsでアラート出すのもいいよ。
+    - プログラムで自動的にエラーを修正した場合、
+    修正内容がユーザーに伝わるようにしようね。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/error-identification.html#techniques)
+- [3.3.2 どんなコントロールなのかわかるようにしようね。（A）](https://waic.jp/translations/WCAG21/Understanding/labels-or-instructions.html)
+    - ユーザーが何に入力しているのかわかるように、選択肢にラベルをつけようね。
+    - 何を入力するべきなのかラベルをつけようね。
+    - 決まったデータ形式があるならそれも説明しておこうね。
+    - 説明が多すぎるとそれはまた良くないので必要以上に提供せず、
+    ユーザーがタスクを完了するために十分な情報の提供をしようね。
+    - [1.3.1（情報及び関係性）との関係](https://waic.jp/translations/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
+        - ラベル又は説明が正しくマークアップ、識別、関連付けをしようね。
+        - これに失敗して3.3.2に合格するということもあり得るよ。（修正しようね。）
+    - 4.1.2（名前 (name)・役割 (role)・値 (value)）との関係
+        - aria-labelなどでアクセシブルな名前をつけようね。
+    - [事例](https://waic.jp/translations/WCAG21/Understanding/labels-or-instructions.html#examples)
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/labels-or-instructions.html#techniques)
+- [3.3.3 エラーに対する修正方法の提案を行おうね。（AA）](https://waic.jp/translations/WCAG21/Understanding/error-suggestion.html#techniques)
+    - [事例](https://waic.jp/translations/WCAG21/Understanding/error-suggestion.html#examples)
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/error-suggestion.html#techniques)
+- 3.3.4 ミス防止をしようね。（AA）
+    - 以下のようなページでこの基準に気をつけようね。
+        - お金を払うページ
+        - 自分で制御可能なデータの削除等ができるページ
+            - 購入履歴
+            - アカウント情報
+            - 試験の解答を送信する
+    - 少なくとも以下のうち1つは満たそうね。
+        - 取消
+            - 送信を取り消すことができる。
+        - チェック
+            - 利用者が入力したデータの入力エラーがチェックされ、利用者には修正する機会が提供される。
+        - 確認
+            - 送信を完了する前に、利用者が情報の見直し、確認及び修正をするメカニズムが利用できる。
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/error-prevention-legal-financial-data.html#techniques)
+
+## [4. コンテンツは、支援技術を含む様々なユーザエージェントが確実に解釈できるようにしてね。](https://waic.jp/translations/WCAG22/#robust)
+
+### [4.1 支援技術の力を引き出せるようにしようね。](https://waic.jp/translations/WCAG21/Understanding/compatible.html)
+
+- [4.1.1  支援技術を含むUAがコンテンツを正確に解釈できるようにしようね。](https://waic.jp/translations/WCAG21/Understanding/parsing.html)
+    - 正しくマークアップしようね。
+        - 開始タグと終了タグを正しく記述する
+        - 入れ子にするタグの要素はHTML仕様通りに記述する
+        - 各要素に設定するID属性はページ内で重複していない
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/parsing.html#techniques)
+- [4.1.2 カスタムコントロールを使う場合は、Accessible Name と role を設定しようね。（A）](https://waic.jp/translations/WCAG21/Understanding/name-role-value.html)
+    - カスタムコントロールとは、inputを使わないチェックボックスとか、タブとかだよ。
+    - 参考：https://a11y-guidelines.ameba.design/4/1/2/
+    - [達成方法](https://waic.jp/translations/WCAG21/Understanding/name-role-value.html#techniques)
