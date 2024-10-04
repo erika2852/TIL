@@ -621,3 +621,5 @@
     - カスタムコントロールとは、inputを使わないチェックボックスとか、タブとかだよ。
     - 参考：https://a11y-guidelines.ameba.design/4/1/2/
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/name-role-value.html#techniques)
+- [4.1.3 ステータスメッセージを含め変化があった場合通知しようね。（AA）](https://waic.jp/translations/WCAG21/Understanding/status-messages.html)
+    -
