@@ -622,4 +622,68 @@
     - 参考：https://a11y-guidelines.ameba.design/4/1/2/
     - [達成方法](https://waic.jp/translations/WCAG21/Understanding/name-role-value.html#techniques)
 - [4.1.3 ステータスメッセージを含め変化があった場合通知しようね。（AA）](https://waic.jp/translations/WCAG21/Understanding/status-messages.html)
-    -
+    - ステータスメッセージとは
+        - メッセージは、アクションの成功や失敗、システムの待機状態、作業の進捗状況、またはエラーの発生に関する情報を利用者に伝えるよ。
+        - メッセージは、利用者の操作による変化（例えば、ボタンをクリックした結果など）に基づいて表示されるもので、自動的に表示されるものではないよ。
+        - 例
+            - 検索ボタンを押した時に「5件の結果が返されました。」
+            - 商品追加ボタンを押して「5つの商品」
+            - 郵便番号入力で誤ったテキストを入力し、「無効な入力」
+        - 画面に新しいテキストを追加しないステータスメッセージの例
+            - 支援技術の利用者に固有の非表示のテキスト
+                - 追加されたコンテンツが他の情報に近接していることによる視覚的な情報を提供するなど
+            - ステータステキストの変更
+                - 例：
+                    - 商品をカートに追加して、「3商品」→「5商品」に変更される時、
+                    5だけ読み上げられるのではなく、「5商品」と読み上げられる。
+            - ステータステキストの削除
+                - 例：
+                    - 通信中、普通は「待機中」が消えたら使用可能になるが、
+                    消えた時に「使用可能」と読み上げられるようにする。
+            - 非テキストのステータスコンテンツ
+                - アイコンや音声がステータスメッセージを示す場合、以下の点を意識しようね。
+                    - テキストによる代替
+                    - 適切な役割 (role) を与える
+                    - 例
+                        - アラートアイコン（⚠️）が表示されている
+                            - 「警告: パスワードが間違っています」という代替テキストを設定する。
+                            - 「alert」という役割を設定する。
+        - ステータスメッセージの変更ではない例（この基準に適用されない例）
+            - ダイアログにエラーメッセージを表示する。
+                - ダイアログはフォーカスを取得するため、スクリーンリーダーは新しいコンテキストが現れたことを認識しユーザーに伝える。
+            - 例
+                - タブリスト
+                    - 選択されたタブの状態を自動的に読み上げ、「タブ2が選択されました」といった情報を提供する。
+                    
+                    ```html
+                    <div role="tablist" aria-label="サンプルタブ">
+                        <button role="tab" aria-selected="true" aria-controls="tab1" id="tab1-btn">タブ1</button>
+                        <button role="tab" aria-selected="false" aria-controls="tab2" id="tab2-btn">タブ2</button>
+                    </div>
+                    <div id="tab1" role="tabpanel" aria-labelledby="tab1-btn">
+                        <p>タブ1の内容です。</p>
+                    </div>
+                    <div id="tab2" role="tabpanel" aria-labelledby="tab2-btn" hidden>
+                        <p>タブ2の内容です。</p>
+                    </div>
+                    ```
+                    
+                - アコーディオン
+                    - ユーザーが「セクション1」のボタンをクリックすると、aria-expanded属性がtrueに更新され、セクションの内容が表示される。
+                    - スクリーンリーダーは、「セクション1が展開されました」といった情報を読み上げ、ユーザーに新たな情報を提供する。
+                    
+                    ```html
+                    <div role="group" aria-labelledby="accordion">
+                        <h3 id="accordion">アコーディオンメニュー</h3>
+                        <button aria-expanded="false" aria-controls="section1" id="section1-btn">セクション1</button>
+                        <div id="section1" role="region" hidden>
+                            <p>セクション1の内容です。</p>
+                        </div>
+                        <button aria-expanded="false" aria-controls="section2" id="section2-btn">セクション2</button>
+                        <div id="section2" role="region" hidden>
+                            <p>セクション2の内容です。</p>
+                        </div>
+                    </div>
+                    ```
+                    
+        - [達成方法](https://waic.jp/translations/WCAG21/Understanding/status-messages.html#techniques)
