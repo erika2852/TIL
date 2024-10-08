@@ -52,7 +52,10 @@
                                 }
                                 ```
                                 
-                            - npm run dev で viteコマンドが実行される。
+                            - npm run dev
+                                - viteコマンドが実行される。
+                            - npm run build
+                                - 
                 - dependencies
                     - プロジェクト内で必要な第三者が作成したソフトウェア（=package）が一覧で書かれている。
                     - 本番環境のみで使うパッケージが入る
