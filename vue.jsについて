@@ -1,3 +1,5 @@
+## Vue.jsの概要
+
 - vue.jsはブラウザ側で処理してUIを構築する
     - rubyやphpなどはサーバー側で処理してUIを構築する
     - 違うページの表示もvue.jsがする
@@ -19,6 +21,9 @@
                 - Vite
                     - Vueを作った人が作ったもの
                     - Vueと相性がいい
+
+## 環境設定
+
 - 環境設定
     - Vite
         - jsでつくられているので、PCでjsを実行できるようにする。
@@ -54,8 +59,24 @@
                                 
                             - npm run dev
                                 - viteコマンドが実行される。
+                                - viteが開発用のサーバーを立ち上げる。
+                                - controll+cで止まる
                             - npm run build
-                                - 
+                                - viteコマンドが実行される。
+                                - リリースする時に使う
+                                - distフォルダが作られる
+                                    - 公開するためのもの
+                                    - 静的hostingサービスに渡すことで世界に公開できる。
+                            - npm run preview
+                                - viteコマンドが実行される。
+                                - サーバーが立ち上がる
+                                - 本番のdistフォルダが正しく動いているか確認できる。
+                            - npm run lint
+                                - create vewの時にeslintを取り入れたのでできる
+                                - コードが正しく記述されているか確認し、
+                                必要があれば成形される。
+                            - npm run format
+                                - prettierがコードを綺麗にフォーマットしてくれる。
                 - dependencies
                     - プロジェクト内で必要な第三者が作成したソフトウェア（=package）が一覧で書かれている。
                     - 本番環境のみで使うパッケージが入る
@@ -65,4 +86,207 @@
             - ここに書かれているのはまだインストールされていない。
                 - npm install で一気にインストールされる
                     - node_modulesに入る
-                -
+        - package-lock.json
+            - node_modulesにあるパッケージの厳密なバージョンが書いてある。
+        - jsconfig.json
+            - vscodeが効率よくコードを管理するためのファイル
+        - index.html
+            - プロジェクト全体のアプリケーションのもとになるファイル
+            - 開発用のサーバーにアクセスしたらこのファイルを表示する。
+                - 本番用の時はdistタグのindex.html
+                - 最適化されているのでscriptタグがheadタグに移動していたりする
+        - prittierrc.json
+            - prittierの設定ファイル
+        - .gitignore
+            - gitの設定
+        - .eslintrc.cjs
+            - eslintの設定ファイル
+            - vue3-essential
+                - recommendedに変更できる
+                    - 最低限からおすすめ設定になる
+                    - eslintの設定が厳しめになる
+            - eslint-conjig-prettier/skip-formatting
+                - prettierがフォーマットする部分には、eslintは手をつけない
+        - srcフォルダ
+            - 開発者がメインで触るファイル
+            - .vueファイルや.js.cssなどはここにおく
+            - viteがこのフォルダの中にあるファイルに対して変換処理を行っている。
+                - .vueを.jsに変換
+                - 公開する時に最適化の処理を行うなど
+        - publicフォルダ
+            - viteに触られたくないファイルを置く
+        - .vscodeフォルダ
+            - extensions.json
+                - おすすめのvscodeの拡張機能がある。
+                - だから右下におすすめ拡張機能のポップアップが出た
+                - 例
+                    - Vue.volar
+                        - 無いと.vueファイルを正しく認識してくれない
+                    - dbaeumer.vscode-eslint
+                        - eslintを入れているとでる
+                        - 存在しないデータがある時に、npm run lintをするとエラーを表示してくれる。
+                        - この拡張機能は上記を保存しただけで行なってくれる。
+                    - esbenp.prettier-vscode
+                        - vscode上のフォーマッターとして設定できる。
+                        - 右クリック→format document withをクリックすると特定のフォーマッターでフォーマットできる（この選択肢にprettierが出る）
+            - settings.json
+                - dbaeumer.vscode-eslintや、esbenp.prettier-vscodeなど入れた拡張機能の設定が書かれている。
+                    - editor.codeActionsOnSave
+                        - eslintの設定
+                        - 保存時にeslintの整形をしてくれる設定
+                    - editor.formatOnSave
+                        - prettierの設定
+                        - 保存時にprettierのフォーマットをしてくれる設定
+                    - editor.defaultFormatter
+                        - prettirをvscodeのデフォルトのフォーマッターにする
+                        - 右クリック→format documenをクリックするとprettierがデフォルト設定されているのでprettierのルールに則ってフォーマットしてくれる
+
+## Vue.jsの具体的な内容
+
+- viteはindex.htmlがベースになっている
+    - /src/main.jsが最初に実行される
+
+- main.js
+    
+    jsの名前付きimport文でvueから提供されるcreateAppという値をimportする必要がある。
+    
+    ```jsx
+    import { createApp } from 'vue'
+    ```
+    
+    Viteがnode_modulesの中にあるvueパッケージの中で定義されている`createApp()`を使えるようにしている。
+    
+    これを呼び出すことがVue.jsのアプリケーションを作る第一ステップになっている。
+    
+    引数にコンポーネント（vueファイル）を1つ渡す必要がある。
+    
+    App.vue（名前はなんでもいい）を以下のようにして引数に入れる。
+    
+    ```jsx
+    import App from './App.vue'
+    //Appはなんでもいいけど、大体ファイル名と合わせるよ
+    createApp(App)
+    ```
+    
+    上記はViteがApp.vueファイルを内部でデフォルトインポートできるようなjsファイルに変換して、
+    
+    変換されたjsファイルを`import App from './App.vue'` でインポートしている。
+    
+    これにより、vueファイルをjsとして扱うことができるようになっている。
+    
+    デベロッパーツールのネットワークにあるApp.vueを開くと、
+    js変換後のコードを見ることができる。
+    
+    export defaultの右側にある値が変数Appに入る。
+    
+    これを見てみるとobject形式になっている。
+    
+
+`createApp()` は引数に指定されたコンポーネントを元にしてインターフェースを作るvueの根幹的機能。
+
+インターフェースを表示する処理は別で必要.
+
+`createApp()`  は返り値を持っているので、以下のようにする。
+
+```jsx
+const app = createApp(App)
+app.mount('#app') //createApp関数が作成したインターフェースをid="app"の要素に入れ込む
+```
+
+- App.vue
+    - <script setup></script>
+        - jsを書く
+    - <template></template>
+        - 必須
+        - htmlを書く
+    - <style></style>
+        - cssを書く
+
+## scriptとtemplateの使い方
+
+```jsx
+<script setup>
+const title = 'Vue.js Course'
+let price = 9.99
+function increment() {
+	price += 1
+	console.log(price)
+}
+</script>
+
+<template>
+	<h1>Title: {{ title }}</h1>
+	<h2>Price: ${{ price - 1 }}</h2>
+	<button @click="increment">button</button>
+</template>
+```
+
+- h1に「Title: Vue.js Course」と表示される。
+- h2に「Price: $8.99」と表示される。
+- buttonを押すたび「7.99」「6.99」…とコンソールに表示されるが、html上は変わらない
+
+```jsx
+let a = 1
+let b = 2
+let c = a + b
+a = 4
+console.log(c)
+```
+
+- aを再代入していないので、cは3と表示される
+- これと一緒で、htmlの表示も更新されるわけではない。
+
+↓リアクティビティ
+
+```jsx
+<script setup>
+import { ref } from 'vue'
+const title = 'Vue.js Course'
+let price = ref(9.99)　//リアクティブになっている。
+function increment() {
+	price.value += 1
+}
+</script>
+
+<template>
+	<h1>Title: {{ title }}</h1>
+	<h2>Price: ${{ price - 1 }}</h2>
+	<button @click="increment">button</button>
+</template>
+```
+
+- .valueをつけない→複雑なオブジェクト（refオブジェクト）
+- .valueをつける→9.99
+- .valueをつけてなくても、eslintを設定していれば自動的につけてくれるかも
+- templateの方では、それがrefオブジェクトかどうかを自動的に判断し、.valueをつけてくれる。
+- データ更新とともに自動的にhtmlの方も更新される。
+
+- `ref()` の中にはオブジェクトも入れることができるが、
+元々がオブジェクトなため、リアクティブにするだけでいい。
+- `reactive()`を使う。
+
+```jsx
+<script setup>
+const instructor = reactive ({
+	name: 'Yuya',
+	age: 24
+})
+console.log(instructor.age)
+</script>
+
+<template>
+	<h2>Instructor Age: ${{ instructor.age }}</h2>
+</template>
+```
+
+- `reactive()`には.valueがいらない
+- instructor自体を見ると複雑なオブジェクトになっている（reactiveオブジェクト）
+
+- 両オブジェクトの違い
+    - refオブジェクトの中身はjsのgetterやsetterで取得
+    - reactiveオブジェクトの中身はjsのproxyで取得
+    - ref関数にオブジェクトを引数に指定した場合でもproxyで取得
+        - proxyで取得したものをvalueの中に入れている
+        - console.log(〇〇.value)でproxyが出てくる
+    - オブジェクトの中にあるオブジェクトを覗いてみても、proxyが出てくる
+    →reactiveが適用されている。
