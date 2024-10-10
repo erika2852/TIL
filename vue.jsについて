@@ -290,3 +290,5 @@ console.log(instructor.age)
         - console.log(〇〇.value)でproxyが出てくる
     - オブジェクトの中にあるオブジェクトを覗いてみても、proxyが出てくる
     →reactiveが適用されている。
+    - reactiveオブジェクトの中にrefオブジェクトがある場合、
+    .valueで指定しなくても大丈夫
