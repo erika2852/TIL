@@ -292,3 +292,4 @@ console.log(instructor.age)
     →reactiveが適用されている。
     - reactiveオブジェクトの中にrefオブジェクトがある場合、
     .valueで指定しなくても大丈夫
+        - reactiveオブジェクトのプロパティにアクセスするときは毎回そのプロパティがrefオブジェクトかどうか調べている
