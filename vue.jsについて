@@ -293,3 +293,73 @@ console.log(instructor.age)
     - reactiveオブジェクトの中にrefオブジェクトがある場合、
     .valueで指定しなくても大丈夫
         - reactiveオブジェクトのプロパティにアクセスするときは毎回そのプロパティがrefオブジェクトかどうか調べている
+        - refオブジェクトだったら、自動的にそのプロパティに.valueをつける
+    - 配列もオブジェクトの一種なので、reactive関数の引数にできる。
+        - 配列の中にrefオブジェクトを入れた場合
+            
+            ```jsx
+            const items = reactive([ref(1), ref(2), ref(3)])
+            console.log(items[0].value)
+            ```
+            
+            reactiveオブジェクトの中にあるrefオブジェクトでも.valueをつけるべき
+            
+- 普通の値もオブジェクトもref関数がいいよ
+- 普通のオブジェクトの中にref関数がある場合
+    - マスタッシュ構文の中の1番左側のみrefオブジェクトかどうかを確認している。（refオブジェクトなら自動で.valueがつく）
+    - reactive関数の中なら先頭のデータじゃなくてもプロパティがrefオブジェクトなら自動的に.valueをつける
+    
+    ```jsx
+    const courseInfo = {
+    	sections: ref(10),
+    	language: ref('Japanese')
+    }
+    console.log(courseInfo.sections.value)    //10
+    ```
+    
+    ```jsx
+    Course Info Sections: {{ courseInfo.sections.value + 1 }}
+    Course Info sections: {{ courseInfo.sections }} //単体なら.valueいらない
+    ```
+    
+
+## templateタグについて
+
+- templateタグの中身にあるhtmlは、viteなどにより、
+jsのコードに変換されている（developerツール>ネットワーク>app.vueで確認できる。）
+- マスタッシュ構文
+    - 単一な式のみかけるよ（if文などは書けないよ）
+    - script内のデータを使うときは、トップレベルで使われている必要があるよ。
+    （関数内で定義された変数は使えない）
+
+```jsx
+
+<script setup>
+import { ref } from 'vue'
+const count = ref(2)
+const count2 = ref(4)
+</script>
+
+<template>
+	<div>{{ count + count2 }}</div>
+	<div>{{ count > 3 ? 'Yes' : 'No' }}</div>
+</template>
+```
+
+- 属性
+    - v-text
+        - マスタッシュ構文があるのであまり使われない
+    
+    ```jsx
+    <script setup>
+    import { ref } from 'vue'
+    const count = ref(2)
+    </script>
+    
+    <template>
+    	<div>{{ count }}</div> //2
+    	<div v-text="count"></div> //2
+    </template>
+    ```
+    
+    -
