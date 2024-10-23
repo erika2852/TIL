@@ -362,4 +362,64 @@ const count2 = ref(4)
     </template>
     ```
     
-    -
+    - v-html
+        - XSSを受ける可能性があるため、
+        v-htmlディレクティブへの値には、信頼できる値のみいれるようにしてね。
+    
+    ```jsx
+    <script setup>
+    import { ref } from 'vue'
+    const message = ref('<h1>Password</h1><input>')
+    </script>
+    
+    <template>
+    	<div v-html="message"></div>
+    </template>
+    ```
+    
+    - v-bind
+        - マスタッシュ構文の属性版
+    
+    ```jsx
+    <script setup>
+    import { ref } from 'vue'
+    const vueURL = ref('https://vuejs.org')
+    const vueId = ref('vue-link')
+    </script>
+    
+    <template>
+    	<a v-bind:href="vueURL" v-bind:id="vueId">Vue.js</a>
+    	<a v-bind="{href:vueURL,id:vueId}">Vue.js</a>
+    	<a :href="vueURL" :id="vueId">Vue.js</a>
+    	<a :href="vueURL" :id>Vue.js</a> //id="id"
+    	<a :href="undefined" :id="null">Vue.js</a> //属性ごと消える
+    	<button :disabled="false">Vue.js</button> //属性ごと消える
+    </template>
+    ```
+    
+    - v-on
+        - イベントハンドラ
+    
+    ```jsx
+    <script setup>
+    import { ref } from 'vue'
+    const count = ref(0)
+    function countUp(event) {
+    	console.log(event) //イベントオブジェクト
+    	count.value = event.clientX
+    }
+    function countUp2(event,times) {
+    	console.log(event) //イベントオブジェクト
+    	count.value = event.clientX
+    }
+    </script>
+    
+    <template>
+    	<p>{{ count }}</p>
+    	<button @click="count++">button</button> //インラインハンドラ
+    	<button @click="count=$event.clientX">button</button> //インラインハンドラ
+    	<button @click="countUp">button</button> //メソッドハンドラ
+    	<button @click="countUp(5)">button</button> //イベントオブジェクトは使えない&引数を渡せる
+    	<button @click="countUp2($event,5)">button</button> //イベントオブジェクトが使える&引数を渡せる
+    </template>
+    ```
