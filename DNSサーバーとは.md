@@ -34,3 +34,5 @@ exanple.comのIPアドレスがわかる
 
 
 https://www.xdomain.ne.jp/column/about-dns/#dns%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%A8%E3%81%AF
+
+LT会しました
