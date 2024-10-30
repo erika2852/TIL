@@ -1,0 +1,4 @@
+mp4でvideoタグにautoplayタグを入れている時、
+iosのSafariではうまくいかない。
+
+playsinlineタグを一緒に埋め込むと良い。
