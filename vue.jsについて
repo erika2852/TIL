@@ -11,6 +11,7 @@
         - 虫食いみたいな感じ
         - 空いたところを自由に書くことができる
             - 少ないコードでいい
+            
 - 全体像
     - 小さなコンポーネントを集めて1つのコンポーネントにする
         - 小さなコンポーネントは単一コンポーネントという
@@ -419,7 +420,144 @@ const count2 = ref(4)
     	<button @click="count++">button</button> //インラインハンドラ
     	<button @click="count=$event.clientX">button</button> //インラインハンドラ
     	<button @click="countUp">button</button> //メソッドハンドラ
-    	<button @click="countUp(5)">button</button> //イベントオブジェクトは使えない&引数を渡せる
+    	<button @click="countUp(5)">button</button> //イベントオブジェクトは使えない(第一引数がeventじゃなくなる)&引数を渡せる
     	<button @click="countUp2($event,5)">button</button> //イベントオブジェクトが使える&引数を渡せる
+    	
+    	<a href="https://vuejs.org" @click="$event.preventDefault()">button</a> //aタグ遷移しなくなる
+    	<div @click="$event.stopPropagation()">
+    		<button @click="$event.stopPropagation()">button</button> //親要素のイベントを発生させない
+    	</div>
+    </template>
     </template>
     ```
+    
+    - イベント修飾子
+    
+    ```jsx
+    <script setup>
+    import { ref } from 'vue'
+    </script>
+    
+    <template>
+    	<a href="https://vuejs.org" @click="$event.preventDefault()">button</a> //aタグ遷移しなくなる
+    	<a href="https://vuejs.org" @click.prevent="">button</a> //上記と一緒
+    	<a href="https://vuejs.org" @click.prevent>button</a> //上記と一緒
+    	<div @click="count++">
+    		<button @click="$event.stopPropagation()">button</button> //親要素のイベントを発生させない
+    	</div>
+    	<div @click="count++">
+    		<button @click.stop="">button</button> //上記と一緒
+    	</div>
+    	<div @click="count++">
+    		<button @click.stop>button</button> //上記と一緒
+    	</div>
+    	<div @click="count++">
+    		<a href="https://vuejs.org" @click.prevent.stop>button</a> //上記と一緒
+    	</div>
+    </template>
+    ```
+    
+    - キー修飾子
+    
+    ```jsx
+    <script setup>
+    import { ref } from 'vue'
+    const count = ref(0)
+    </script>
+    
+    <template>
+    	<p>{{ count }}</p>
+    	<input type="text" @keyup.space="count++" /> //spaceを押した時のみcount++
+    	<input type="text" @keyup.space.deleate="count++" /> //spaceとdeleateを押した時のみcount++
+    </template>
+    ```
+    
+
+- ディレクティブ
+    - v-on:click.prevent=””changeData”
+        - 名前、引数、修飾子、値
+    - 引数を動的に指定
+        
+        ```jsx
+        <script setup>
+        import { ref } from 'vue'
+        const count = ref(0)
+        const eventName = 'keyup'
+        </script>
+        
+        <template>
+        	<p>{{ count }}</p>
+        	<input type="text" @[eventName]="count++" /> 
+        </template>
+        ```
+        
+
+- v-model
+    
+    ```jsx
+    <script setup>
+    import { ref } from 'vue'
+    const userInput = ref('')
+    </script>
+    
+    <template>
+    	<p>{{ userInput }}</p>
+    	<input type="text" v-model="userInput" />  //userInputと常に同期
+    </template>
+    ```
+    
+
+- computed
+    
+    ```jsx
+    <script setup>
+    import { ref, computed } from 'vue'
+    const score = ref(0)
+    const evaluation = score.value > 3 ? 'Good' : 'Bad' //Badしか入らない
+    const evaluation = computed(() => {
+    	return score.value > 3 ? 'Good' : 'Bad'
+    } //score.valueが3より大きい時'Good'になる。
+    
+    const evaluation = computed(() => {
+      foo.value
+      bar.value
+    	return score.value > 3 ? 'Good' : 'Bad'
+    }
+    </script>
+    
+    <template>
+    	<p>{{ score > 3 ? 'Good' : 'Bad' }}</p>
+    	<p>{{ evaluation }}</p>
+    	<p>{{ score }}</p>
+    	<button @click="score++">+1</button> 
+    </template>
+    ```
+    
+
+```jsx
+<script setup>
+import { ref, computed } from 'vue'
+const evaluation = computed(() => {
+  console.log('computed')
+	return score.value > 3 ? 'Good' : 'Bad'
+}  //①が起こりこの関数が実行される。&関数内の値の監視を始める。
+console.log(evaluation.value)  //①
+</script>
+
+<template>
+	<p>{{ score > 3 ? 'Good' : 'Bad' }}</p>
+	<p>{{ evaluation }}</p>
+	<p>{{ score }}</p>
+	<button @click="score++">+1</button> //③scoreの値が更新される&evaluationが動く
+</template>
+```
+
+- computedとtemplateどっちを使えばいいの？
+    - computedを使うべき
+        - templateや他の関数でevalutionが読まれていなかった時、
+        その値を変更する意味ないから関数実行しない。
+    - templateはどれかの値が変わるたびに再レンダリングされる。
+        - その度にsctiptの読み込みも１から走る
+
+- watcher
+    -
